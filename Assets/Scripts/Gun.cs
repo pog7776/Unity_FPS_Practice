@@ -10,6 +10,7 @@ public class Gun : MonoBehaviour
 
     public int clipSize = 20;    //size of the weapons clips (amount of ammo)
     public int ammo;    //amount of ammo currently in clip
+    public bool infiniteAmmo;   //give weapon infinite ammo
     public float reloadTime = 3f;   //time it takes to reload
     public Text ammoCounter;
 
@@ -19,12 +20,13 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
 
-    public AudioSource fireSound;
-    public AudioSource reloadSound;
+    public AudioSource fireSound;   //audio played when weapon fired
+    public AudioSource reloadSound; //audio played when reloading
 
     private float fireTimer = 0f;    //initialise the weapon speed management
     private float reloadTimer = 0f;  //initialise the reload timer
     private bool reloading = false; //is the weapon reloading
+    private bool sprinting = false;
 
     private void Start()
     {
@@ -50,7 +52,7 @@ public class Gun : MonoBehaviour
 
 
 
-        if (Input.GetButton("Fire1") && fireTimer <= 0 && ammo > 0 && !reloading)
+        if (Input.GetButton("Fire1") && fireTimer <= 0 && ammo > 0 && !reloading && !sprinting)
         {
             Shoot();
         }
@@ -68,13 +70,28 @@ public class Gun : MonoBehaviour
             Reload();
             return;
         }
+
+        if (Input.GetButton("Sprint"))
+        {
+            animator.SetBool("Sprinting", true);
+            sprinting = true;
+            reloading = false;
+        }
+        else if(Input.GetButtonUp("Sprint"))
+        {
+            animator.SetBool("Sprinting", false);
+            sprinting = false;
+        }
     }
 
     void Shoot() {
         muzzleFlash.Play();
         fireSound.Play();
         fireTimer = fireRate;
-        ammo--;
+        if (!infiniteAmmo)
+        {
+            ammo--;
+        }
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
