@@ -5498,8 +5498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  range: 100
-  impactForce: 60
+  range: 150
+  impactForce: 200
   fireRate: 0.1
   clipSize: 40
   ammo: 40

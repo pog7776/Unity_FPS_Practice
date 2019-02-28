@@ -55,7 +55,14 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && fireTimer <= 0 && ammo > 0 && !reloading && !sprinting)
         {
             Shoot();
+            animator.SetBool("TriggerPulled", true);
         }
+
+        if (Input.GetButtonUp("Fire1"))
+        {
+            animator.SetBool("TriggerPulled", false);
+        }
+
         if (Input.GetButton("Reload") && ammo != clipSize && !reloading)
         {
             animator.SetBool("Reloading", true);
@@ -92,10 +99,12 @@ public class Gun : MonoBehaviour
         {
             ammo--;
         }
+
         RaycastHit hit;
+
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            //Debug.Log(hit.transform.name);
             Target target = hit.transform.GetComponent<Target>();
             if (target != null){
                 target.TakeDamage(damage);
