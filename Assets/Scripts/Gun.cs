@@ -19,6 +19,9 @@ public class Gun : MonoBehaviour
 
     public Animator animator;
 
+    public AudioSource fireSound;
+    public AudioSource reloadSound;
+
     private float fireTimer = 0f;    //initialise the weapon speed management
     private float reloadTimer = 0f;  //initialise the reload timer
     private bool reloading = false; //is the weapon reloading
@@ -54,6 +57,7 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Reload") && ammo != clipSize && !reloading)
         {
             animator.SetBool("Reloading", true);
+            reloadSound.Play();
             reloadTimer = reloadTime;
             reloading = true;
             Reload();
@@ -68,6 +72,7 @@ public class Gun : MonoBehaviour
 
     void Shoot() {
         muzzleFlash.Play();
+        fireSound.Play();
         fireTimer = fireRate;
         ammo--;
         RaycastHit hit;
