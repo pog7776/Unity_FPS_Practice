@@ -26,7 +26,8 @@ public class Gun : MonoBehaviour
     private float fireTimer = 0f;    //initialise the weapon speed management
     private float reloadTimer = 0f;  //initialise the reload timer
     private bool reloading = false; //is the weapon reloading
-    private bool sprinting = false;
+    private bool sprinting = false; //check if character is sprinting
+    private bool isActive = false;  //checking if weapon is active
 
     private void Start()
     {
@@ -38,6 +39,17 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (gameObject.activeSelf)  //checking to see if weapon is active, if not stop any ongoing reloading
+        {
+            isActive = true;
+        }
+        if (!isActive)
+        {
+            reloading = false;
+            animator.Play("weaponIdle 0", 0, 0f);  //attempt to reset idle animation
+        }
+
         fireTimer = fireTimer - Time.deltaTime; //fire timer
         reloadTimer = reloadTimer - Time.deltaTime; //reload timer
 
