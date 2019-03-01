@@ -8,6 +8,7 @@ This is a basic FPS setup for practice or future use.
 - ~~Do rifle animations~~
 - Scope/zoom
 - Crouching
+- Enemies
 - Explosives
 - UI/HUD
 - Player model
