@@ -3,9 +3,9 @@
 
 This is a basic FPS setup for practice or future use.
 
-#To Do
-- Finish pistol animations
-- Do rifle animations
+## To Do
+- ~~Finish pistol animations~~
+- ~~Do rifle animations~~
 - Scope/zoom
 - Crouching
 - Explosives
@@ -16,5 +16,6 @@ This is a basic FPS setup for practice or future use.
 - Melee
 - ...
 
-#Known Bugs
-- Weapon reload animations break if you switch weapon during the animaion
+## Known Bugs
+- Weapon ~~reload~~ animations break if you switch weapon during the animaion
+- Can reload while sprinting and sprint while reloading
