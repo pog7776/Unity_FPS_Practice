@@ -82,7 +82,7 @@ public class Gun : MonoBehaviour
             Shoot();
             animator.SetBool("Fire", true);
         }
-        else if (Input.GetButtonDown("Fire1") && ammo <= 0)
+        else if (Input.GetButtonDown("Fire1") && ammo <= 0 && !reloading)
         {
             noAmmoSound.Play();
         }
