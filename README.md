@@ -6,6 +6,7 @@ This is a basic FPS setup for practice or future use.
 ## To Do
 - ~~Finish pistol animations~~
 - ~~Do rifle animations~~
+- Import shadergraph and lightweight texture pipeline without breaking the current textures
 - Scope/zoom
 - Crouching
 - Enemies
@@ -15,6 +16,7 @@ This is a basic FPS setup for practice or future use.
 - More weapons
 - Inventory? Picking up weapons
 - Melee
+- Multiplayer
 - ...
 
 ## Known Bugs
