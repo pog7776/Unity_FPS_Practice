@@ -7,6 +7,7 @@ This is a basic FPS setup for practice or future use.
 - ~~Finish pistol animations~~
 - ~~Do rifle animations~~
 - Import shadergraph and Render-Pipelines light weight without breaking the current textures
+- Make reloading a coroutine
 - Scope/zoom
 - Crouching
 - Enemies
