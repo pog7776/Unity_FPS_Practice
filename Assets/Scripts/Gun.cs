@@ -22,6 +22,7 @@ public class Gun : MonoBehaviour
 
     public AudioSource fireSound;   //audio played when weapon fired
     public AudioSource reloadSound; //audio played when reloading
+    public AudioSource noAmmoSound; //audio played when no ammo and attempt to fire
 
     private float fireTimer = 0f;    //initialise the weapon speed management
     private float reloadTimer = 0f;  //initialise the reload timer
@@ -40,16 +41,28 @@ public class Gun : MonoBehaviour
     void Update()
     {
 
+        if (!isActive && gameObject.activeSelf)
+        {
+            animator.Play("weaponIdle", -1, 0f);
+            isActive = true;
+            reloading = false;
+            //animator.Play("weaponIdle 0", 0, 0f);  //attempt to reset idle animation
+            //animator.enabled = false;
+        }
+        else if (!gameObject.activeSelf)
+        {
+            isActive = false;
+        }
+
+        /*
         if (gameObject.activeSelf)  //checking to see if weapon is active, if not stop any ongoing reloading
         {
             isActive = true;
+            //animator.enabled = true;
+            //animator.Play("weaponIdle", -1, 0f);
         }
-        if (!isActive)
-        {
-            reloading = false;
-            animator.Play("weaponIdle 0", 0, 0f);  //attempt to reset idle animation
-        }
-
+        */
+        
         fireTimer = fireTimer - Time.deltaTime; //fire timer
         reloadTimer = reloadTimer - Time.deltaTime; //reload timer
 
@@ -67,12 +80,20 @@ public class Gun : MonoBehaviour
         if (Input.GetButton("Fire1") && fireTimer <= 0 && ammo > 0 && !reloading && !sprinting)
         {
             Shoot();
-            animator.SetBool("TriggerPulled", true);
+            animator.SetBool("Fire", true);
+        }
+        else if (Input.GetButtonDown("Fire1") && ammo <= 0)
+        {
+            noAmmoSound.Play();
+        }
+        else
+        {
+            animator.SetBool("Fire", false);
         }
 
         if (Input.GetButtonUp("Fire1"))
         {
-            animator.SetBool("TriggerPulled", false);
+            //animator.SetBool("Fire", false);
         }
 
         if (Input.GetButton("Reload") && ammo != clipSize && !reloading)
@@ -146,6 +167,18 @@ public class Gun : MonoBehaviour
         else
         {
             reloadTimer = reloadTime;
+        }
+    }
+
+    public bool IsReloading()
+    {
+        if (reloading)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
