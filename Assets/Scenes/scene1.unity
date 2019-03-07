@@ -255,7 +255,7 @@ GameObject:
   m_Layer: 0
   m_Name: Head
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1040,7 +1040,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f8190e1e7a8a08047ac2636d55b2916a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5318,7 +5318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58f251a22830404da819b10cd083dc1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 88.70937
+      value: 88.602
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: c58f251a22830404da819b10cd083dc1, type: 3}
       propertyPath: m_LocalRotation.x
@@ -5582,7 +5582,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f8190e1e7a8a08047ac2636d55b2916a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5696,7 +5696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1357747802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 20.975685, y: 4.05918, z: -29.17749}
+  m_LocalPosition: {x: 25.33, y: 4.05918, z: -10.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 888582189}
@@ -6909,6 +6909,7 @@ GameObject:
   - component: {fileID: 1629723565}
   - component: {fileID: 1629723564}
   - component: {fileID: 1629723563}
+  - component: {fileID: 1629723567}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -6982,12 +6983,28 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629723562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 103.225, y: 2.3825045, z: 83.048}
+  m_LocalPosition: {x: 105.81, y: 0.88, z: 103.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1629723567
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629723562}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!81 &1637481245
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9085,6 +9102,21 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
+        type: 3}
+      propertyPath: InitialModule.rotation3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.9607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
+        type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2352209834738446932, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9329,21 +9361,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
-        type: 3}
-      propertyPath: InitialModule.rotation3D
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.9607843
-      objectReference: {fileID: 0}
-    - target: {fileID: 2352209833806740152, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2352209833806740155, guid: bb7bb0b3dba18ed468c05bde24e7e0c1,
         type: 3}
