@@ -14,6 +14,7 @@ This is a basic FPS setup for practice or future use.
 - Explosives
 - UI/HUD
 - Player model
+- Floor material step sounds
 - More weapons
 - Inventory? Picking up weapons
 - Melee
